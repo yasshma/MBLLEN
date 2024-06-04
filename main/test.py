@@ -10,8 +10,8 @@ import cv2
 import argparse
 
 parser = argparse.ArgumentParser()
-parser.add_argument("--input", "-i", type=str, default='../input', help='test image folder')
-parser.add_argument("--result", "-r", type=str, default='../result', help='result folder')
+parser.add_argument("--input", "-i", type=str, default='./input', help='test image folder')
+parser.add_argument("--result", "-r", type=str, default='./result', help='result folder')
 parser.add_argument("--model", "-m", type=str, default='Syn_img_lowlight_withnoise', help='model name')
 parser.add_argument("--com", "-c", type=int, default=1, help='output with/without origional image and mid result')
 parser.add_argument("--highpercent", "-hp", type=int, default=95, help='should be in [85,100], linear amplification')
@@ -29,7 +29,7 @@ path = glob(input_folder+'/*.*')
 
 model_name = arg.model
 mbllen = Network.build_mbllen((None, None, 3))
-mbllen.load_weights('../models/'+model_name+'.h5')
+mbllen.load_weights('./models/'+model_name+'.h5')
 opt = keras.optimizers.Adam(lr=2 * 1e-04, beta_1=0.9, beta_2=0.999, epsilon=1e-08)
 mbllen.compile(loss='mse', optimizer=opt)
 
