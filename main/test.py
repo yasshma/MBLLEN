@@ -30,7 +30,7 @@ path = glob(input_folder+'/*.*')
 model_name = arg.model
 mbllen = Network.build_mbllen((None, None, 3))
 mbllen.load_weights('./models/'+model_name+'.h5')
-opt = keras.optimizers.Adam(lr=2 * 1e-04, beta_1=0.9, beta_2=0.999, epsilon=1e-08)
+opt = keras.optimizers.Adam(learning_rate=2 * 1e-04, beta_1=0.9, beta_2=0.999, epsilon=1e-08)
 mbllen.compile(loss='mse', optimizer=opt)
 
 flag = arg.com
